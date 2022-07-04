@@ -1,13 +1,10 @@
 {
-  {
     "Fixo": [
     {
       "id": 1,
       "title": "Ilimitado Fixo Brasil"
     }
-  ]
- },
- {
+  ],
   "TV":[
     {
       "id": 1,
@@ -17,9 +14,7 @@
       "id": 2,
       "title": "Full HD"
     }
-  ]
- },
- {
+  ],
   "internet": [
     {
       "id": 1,
@@ -34,5 +29,4 @@
       "title": "300 MB"
     }
   ]
- }
 }
