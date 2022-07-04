@@ -18,7 +18,8 @@
     "dotenv": "^16.0.1",
     "vue": "^3.2.13",
     "vue-router": "^4.1.0",
-    "vue-store": "^0.3.1-moved"
+    "vue-store": "^0.3.1-moved",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
