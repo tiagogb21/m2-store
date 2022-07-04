@@ -1,21 +1,19 @@
 <template>
   <section>
     <HeaderPrincipal />
-    <HomeComponents />
+    <router-view />
     <FooterPrincipal />
   </section>
 </template>
 
 <script>
 import HeaderPrincipal from "./components/header/HeaderPrincipal.vue";
-import HomeComponents from "./pages/home/HomeProducts.vue";
 import FooterPrincipal from "./components/footer/FooterPrincipal.vue";
 
 export default {
   name: "App",
   components: {
     HeaderPrincipal,
-    HomeComponents,
     FooterPrincipal,
   },
 };
