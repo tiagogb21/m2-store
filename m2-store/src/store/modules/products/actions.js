@@ -4,7 +4,7 @@ import { BASE_URL } from '../../../services/data';
 const actions = {
   getProductItems({ commit }) {
     axios.get(BASE_URL).then((response) => {
-      commit('GET PRODUCT ITEMS', response.data);
+      commit('GET_PRODUCT_ITEMS', response.data);
     });
   },
 };

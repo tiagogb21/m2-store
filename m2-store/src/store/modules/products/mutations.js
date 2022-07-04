@@ -1,5 +1,5 @@
 const mutations = {
-  GET_PRODUCTS(state, payload) {
+  GET_PRODUCT_ITEMS(state, payload) {
     state.productItems = payload;
   },
 };
