@@ -1,5 +1,15 @@
 <template>
   <main class="container">
+    <section class="button__container">
+      <button class="button-select">
+        <img src="../../assets/cart.png" alt="remove item" />
+        CONTINUAR
+      </button>
+      <button class="button-select">
+        <img src="../../assets/remove.png" alt="remove item" />
+        DELETE
+      </button>
+    </section>
     <article class="total__box">
       <p>Total</p>
       <p>R$ /mês</p>
@@ -40,7 +50,6 @@
             v-bind:key="prod.id"
             class="internet__item"
           >
-            <input type="radio" name="input-internet" id="input-internet" />
             <p>{{ prod }}</p>
             <p>R$</p>
             <p>+ Detalhes</p>
@@ -143,5 +152,34 @@ export default {
 
 .total__box {
   color: rgb(185, 147, 210, 1);
+}
+
+.button__container {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-select {
+  height: 7vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: rgb(9, 73, 94);
+  color: white;
+  font-size: 2vw;
+  padding: 3vw;
+  opacity: 0.7;
+}
+
+.button-select:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.button-select img {
+  width: 20%;
 }
 </style>

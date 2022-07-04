@@ -35,5 +35,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  font-size: 2vw;
 }
 </style>
