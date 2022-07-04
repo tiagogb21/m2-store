@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HomeProducts from '../components/home/HomeProducts.vue';
+import HomeProducts from '../pages/home/HomeProducts.vue';
 export default {
   name: 'HomeView',
   components: {

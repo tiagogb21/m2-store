@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="app">
     <HeaderPrincipal />
     <router-view />
     <FooterPrincipal />
@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import HeaderPrincipal from "./components/header/HeaderPrincipal.vue";
-import FooterPrincipal from "./components/footer/FooterPrincipal.vue";
+import HeaderPrincipal from './components/header/HeaderPrincipal.vue';
+import FooterPrincipal from './components/footer/FooterPrincipal.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     HeaderPrincipal,
     FooterPrincipal,
@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -27,11 +27,15 @@ export default {
 }
 
 #app {
+  width: 95vw;
+  height: 95vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
