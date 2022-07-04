@@ -24,24 +24,29 @@
       v-bind:key="product.id"
     >
       <h3 class="title">{{ product }}</h3>
+      <!-- Fixo -->
       <article v-if="product === 'Fixo'" class="fixo__container">
         <h4>Agora escolha seu pacote de telefone fixo</h4>
         <article class="fixo__item">
           <p>{{ productFixo }}</p>
         </article>
       </article>
+      <!-- TV -->
       <article v-else-if="product === 'TV'">
         <h4>Agora escolha seu pacote de televisão</h4>
         <article class="tv__box">
-          <article
+          <button
             v-for="prod in productTV"
             v-bind:key="prod.id"
             class="tv__item"
+            @click="addProductToCart(product.id)"
+            type="button"
           >
             <p>{{ prod }}</p>
-          </article>
+          </button>
         </article>
       </article>
+      <!-- Internet -->
       <article v-else class="internet__container">
         <h4>Selecione um plano de internet para continuar</h4>
         <article class="internet__box">
@@ -172,6 +177,7 @@ export default {
   font-size: 2vw;
   padding: 3vw;
   opacity: 0.7;
+  border-radius: 1vw;
 }
 
 .button-select:hover {
