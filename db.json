@@ -1,0 +1,32 @@
+{
+  "Fixo": [
+    {
+      "id": 1,
+      "title": "Ilimitado Fixo Brasil"
+    }
+  ],
+  "TV":[
+    {
+      "id": 1,
+      "title": "Ultimate HD"
+    },
+    {
+      "id": 2,
+      "title": "Full HD"
+    }
+  ],
+  "internet": [
+    {
+      "id": 1,
+      "title": "100 MB"
+    },
+    {
+      "id": 2,
+      "title": "200 MB"
+    },
+    {
+      "id": 3,
+      "title": "300 MB"
+    }
+  ]
+}
