@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HomeComponents from "./components/HomeComponent.vue";
+import HomeComponents from "./components/home/HomeProducts.vue";
 
 export default {
   name: "App",
