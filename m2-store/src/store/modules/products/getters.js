@@ -5,23 +5,24 @@ const getters = {
   productList: (state) => Object.keys(state.productItems),
   // Acessando o valor armazenado no objeto fixo:
 
-  productFixo: (state) => Object.values(state.productItems)[0][0].title,
+  productFixo: (state) => Object.values(state.productItems)[0][0],
 
   productTV: (state) =>
-    Object.values(state.productItems)[1].map((item) => item.title),
+    Object.values(state.productItems)[1].map((item) => item),
 
   productInternet: (state) =>
     Object.values(state.productItems)[2].map((item) => item),
 
-  addProductToCart: (state) => (id) => {
-    const isProductInCart = state.cartItems.find((val) => val.id === id);
-    const getProduct = state.productItems.find((val) => val.id === id);
-    if (isProductInCart) {
-      isProductInCart.quantity += 1;
-    } else {
-      getProduct.quantity = 1;
-      state.cartItems.push(getProduct);
+  addProductToCart: (state) => (name, prod) => {
+    state.cartItems[name]['product'] = prod.title;
+    state.cartItems[name]['price'] = prod.price;
+    state.cartItems;
+    let totalPrice = 0;
+    for (let item in state.cartItems) {
+      totalPrice += Number(state.cartItems[item].price);
     }
+    state.totalPrice = totalPrice;
+    return state.totalPrice;
   },
 };
 

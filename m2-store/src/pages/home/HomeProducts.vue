@@ -1,24 +1,31 @@
 <template>
   <main class="container">
     <section class="button__container">
+      <!-- Botão Continuar -->
       <button class="button-select">
         <img src="../../assets/cart.png" alt="remove item" />
         CONTINUAR
       </button>
+      <!-- Botão Apagar Plano Selecionado -->
       <button class="button-select">
         <img src="../../assets/remove.png" alt="remove item" />
         DELETE
       </button>
     </section>
+
+    <!-- total -->
     <article class="total__box">
       <p>Total</p>
-      <!-- {{ total }} -->
-      <p>R$ /mês</p>
+      <p>R$ {{ this.$store.state.totalPrice }} / mês</p>
     </article>
+
+    <!-- Taxa de instalação -->
     <article class="instalacao__box">
       <p>Taxa de instalação</p>
       <p>Grátis</p>
     </article>
+
+    <!-- Produtos -->
     <section
       class="product__container"
       v-for="product in productList"
@@ -29,9 +36,13 @@
       <!-- Fixo -->
       <article v-if="product === 'Fixo'" class="fixo__container">
         <h4>Agora escolha seu pacote de telefone fixo</h4>
-        <article class="fixo__item">
-          <p>{{ productFixo }}</p>
-        </article>
+        <button
+          class="fixo__item"
+          type="button"
+          @click="addProductToCart('fixo', productFixo)"
+        >
+          <p>{{ productFixo.title }}</p>
+        </button>
       </article>
 
       <!-- TV -->
@@ -42,10 +53,11 @@
             v-for="prod in productTV"
             v-bind:key="prod.id"
             class="tv__item"
-            @click="addProductToCart(product.id)"
             type="button"
+            @click="addProductToCart('tv', prod)"
           >
-            <p>{{ prod }}</p>
+            <p class="product__title">{{ prod.title }}</p>
+            <p>R$ {{ prod.price }}.00</p>
           </button>
         </article>
       </article>
@@ -54,15 +66,17 @@
       <article v-else class="internet__container">
         <h4>Selecione um plano de internet para continuar</h4>
         <article class="internet__box">
-          <article
+          <button
             v-for="prod in productInternet"
             v-bind:key="prod.id"
             class="internet__item"
+            type="button"
+            @click="addProductToCart('internet', prod)"
           >
-            <p class="internet__title">{{ prod.title }}</p>
+            <p class="product__title">{{ prod.title }}</p>
             <p>R$ {{ prod.price }}.00</p>
             <p>+ Detalhes</p>
-          </article>
+          </button>
         </article>
       </article>
     </section>
@@ -75,7 +89,9 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'HomeProducts',
   data() {
-    return {};
+    return {
+      price: 0,
+    };
   },
   computed: {
     ...mapGetters([
@@ -84,10 +100,14 @@ export default {
       'productFixo',
       'productTV',
       'productInternet',
+      'addProductToCart',
     ]),
   },
   created() {
     this.$store.dispatch('getProductItems');
+  },
+  updated() {
+    this.price = this.$store.state.totalPrice;
   },
 };
 </script>
@@ -106,7 +126,7 @@ export default {
 
 .fixo__item {
   display: flex;
-  width: 50%;
+  width: 20%;
   border: 1px solid black;
   justify-content: center;
   align-items: center;
@@ -152,7 +172,7 @@ export default {
   align-items: center;
 }
 
-.internet__title {
+.product__title {
   color: rgb(31, 36, 114);
   font-weight: bolder;
 }

@@ -7,9 +7,6 @@ const actions = {
       commit('GET_PRODUCT_ITEMS', response.data);
     });
   },
-  getProductId({ commit }, id) {
-    commit('GET_PRODUCT_ID', id);
-  },
 };
 
 export default actions;
