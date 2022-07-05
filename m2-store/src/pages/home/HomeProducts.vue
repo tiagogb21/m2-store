@@ -12,6 +12,7 @@
     </section>
     <article class="total__box">
       <p>Total</p>
+      <!-- {{ total }} -->
       <p>R$ /mês</p>
     </article>
     <article class="instalacao__box">
@@ -24,6 +25,7 @@
       v-bind:key="product.id"
     >
       <h3 class="title">{{ product }}</h3>
+
       <!-- Fixo -->
       <article v-if="product === 'Fixo'" class="fixo__container">
         <h4>Agora escolha seu pacote de telefone fixo</h4>
@@ -31,6 +33,7 @@
           <p>{{ productFixo }}</p>
         </article>
       </article>
+
       <!-- TV -->
       <article v-else-if="product === 'TV'">
         <h4>Agora escolha seu pacote de televisão</h4>
@@ -46,6 +49,7 @@
           </button>
         </article>
       </article>
+
       <!-- Internet -->
       <article v-else class="internet__container">
         <h4>Selecione um plano de internet para continuar</h4>
@@ -55,8 +59,8 @@
             v-bind:key="prod.id"
             class="internet__item"
           >
-            <p>{{ prod }}</p>
-            <p>R$</p>
+            <p class="internet__title">{{ prod.title }}</p>
+            <p>R$ {{ prod.price }}.00</p>
             <p>+ Detalhes</p>
           </article>
         </article>
@@ -146,6 +150,11 @@ export default {
   border: 1px solid black;
   justify-content: center;
   align-items: center;
+}
+
+.internet__title {
+  color: rgb(31, 36, 114);
+  font-weight: bolder;
 }
 
 .instalacao__box,

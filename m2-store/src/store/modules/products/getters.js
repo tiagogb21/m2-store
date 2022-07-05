@@ -11,7 +11,7 @@ const getters = {
     Object.values(state.productItems)[1].map((item) => item.title),
 
   productInternet: (state) =>
-    Object.values(state.productItems)[2].map((item) => item.title),
+    Object.values(state.productItems)[2].map((item) => item),
 
   addProductToCart: (state) => (id) => {
     const isProductInCart = state.cartItems.find((val) => val.id === id);
