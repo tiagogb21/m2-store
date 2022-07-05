@@ -31,3 +31,24 @@ docker-compose build --no-cache
 ```
 
 ### Para encerrar o processo: CTRL + C
+
+<br />
+
+### O projeto utiliza:
+
+ <p> <strong>Router:</strong> Para criar as rotas de navegação. </p>
+ 
+ <p> <strong>Store:</strong> Gerenciamento de Estado Centralizado. </p>
+
+<br />
+
+### Usuário:
+
+ <p> O usuário pode escolher apenas um plano por categoria. <p>
+
+ <p> Deve escolher primeiro o plano de internet, para então escolher o plano de TV e telefonia fixa <p>
+
+ <p> O valor total do plano pode ser encontrado no final da página. </p>
+ 
+ <p> No final da página existe um botão "REMOVE" que irá retirar os itens do carrinho e zerar o valor total do plano. </p>
+
