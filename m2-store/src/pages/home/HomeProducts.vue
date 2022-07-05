@@ -2,11 +2,15 @@
   <main class="container">
     <section class="button__container">
       <!-- Botão Continuar -->
-      <button class="button-select">
+      <button
+        type="button"
+        class="button-select"
+        :disabled="isButtonDisabled"
+        @click="teste"
+      >
         <img src="../../assets/cart.png" alt="remove item" />
         CONTINUAR
       </button>
-      <!-- Botão Apagar Plano Selecionado -->
     </section>
 
     <!-- total -->
@@ -14,6 +18,7 @@
       <p>Total</p>
       <article class="box__price__option">
         <p>R$ {{ this.$store.state.totalPrice }} / mês</p>
+        <!-- Botão para Apagar o Plano Selecionado -->
         <button type="button" @click="removeAllItems" :disabled="isDisabled">
           <img src="../../assets/remove.png" alt="remove item" />
         </button>
@@ -96,7 +101,6 @@ export default {
     return {
       price: 0,
       disable: true,
-      teste: 'product__title',
     };
   },
   computed: {
@@ -114,12 +118,33 @@ export default {
         this.$store.state.cartItems.internet.product.length === 0;
       return isInternetProductEmpty;
     },
+    isButtonDisabled() {
+      const isInternetProductEmpty =
+        this.$store.state.cartItems.internet.product.length === 0;
+      const isTVProductEmpty =
+        this.$store.state.cartItems.tv.product.length === 0;
+      const isFixoProductEmpty =
+        this.$store.state.cartItems.fixo.product.length === 0;
+      return isInternetProductEmpty || isTVProductEmpty || isFixoProductEmpty;
+    },
   },
   created() {
     this.$store.dispatch('getProductItems');
   },
   updated() {
     this.price = this.$store.state.totalPrice;
+  },
+  methods: {
+    teste() {
+      const cartItems = this.$store.state.cartItems;
+      console.log(cartItems);
+      const a = `
+        Plano de Internet: ${cartItems.internet.product}
+        Plano de TV: ${cartItems.tv.product}
+        Plano Fixo: ${cartItems.fixo.product}
+      `;
+      window.alert(a);
+    },
   },
 };
 </script>
@@ -208,7 +233,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: rgb(184, 180, 180);
   font-size: 2vw;
   padding: 3vw;
   opacity: 0.7;
