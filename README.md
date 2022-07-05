@@ -31,3 +31,9 @@ docker-compose build --no-cache
 ```
 
 ### Para encerrar o processo: CTRL + C
+
+# O projeto utiliza:
+
+ <p> <strong>Router:</strong> para criar as rotas. </p>
+ 
+ <p> <strong>Store:</strong> para trabalhar com dados de maneira global. </p>
