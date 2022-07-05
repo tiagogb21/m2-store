@@ -7,16 +7,17 @@
         CONTINUAR
       </button>
       <!-- Botão Apagar Plano Selecionado -->
-      <button class="button-select" type="button" @click="removeAllItems">
-        <img src="../../assets/remove.png" alt="remove item" />
-        REMOVE
-      </button>
     </section>
 
     <!-- total -->
     <article class="total__box">
       <p>Total</p>
-      <p>R$ {{ this.$store.state.totalPrice }} / mês</p>
+      <article class="box__price__option">
+        <p>R$ {{ this.$store.state.totalPrice }} / mês</p>
+        <button type="button" @click="removeAllItems" :disabled="isDisabled">
+          <img src="../../assets/remove.png" alt="remove item" />
+        </button>
+      </article>
     </article>
 
     <!-- Taxa de instalação -->
@@ -40,6 +41,7 @@
           class="fixo__item"
           type="button"
           @click="addProductToCart('fixo', productFixo)"
+          :disabled="isDisabled"
         >
           <p>{{ productFixo.title }}</p>
         </button>
@@ -54,9 +56,12 @@
             v-bind:key="prod.id"
             class="tv__item"
             type="button"
+            :disabled="isDisabled"
             @click="addProductToCart('tv', prod)"
           >
-            <p class="product__title">{{ prod.title }}</p>
+            <p>
+              {{ prod.title }}
+            </p>
             <p>R$ {{ prod.price }}.00</p>
           </button>
         </article>
@@ -75,7 +80,6 @@
           >
             <p class="product__title">{{ prod.title }}</p>
             <p>R$ {{ prod.price }}.00</p>
-            <p>+ Detalhes</p>
           </button>
         </article>
       </article>
@@ -91,6 +95,8 @@ export default {
   data() {
     return {
       price: 0,
+      disable: true,
+      teste: 'product__title',
     };
   },
   computed: {
@@ -103,6 +109,11 @@ export default {
       'addProductToCart',
       'removeAllItems',
     ]),
+    isDisabled() {
+      const isInternetProductEmpty =
+        this.$store.state.cartItems.internet.product.length === 0;
+      return isInternetProductEmpty;
+    },
   },
   created() {
     this.$store.dispatch('getProductItems');
@@ -122,13 +133,13 @@ export default {
 
 .title {
   text-transform: uppercase;
-  color: rgb(185, 147, 210, 1);
+  color: rgb(166 113 196);
 }
 
 .fixo__item {
   display: flex;
   width: 20%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -140,7 +151,7 @@ export default {
   cursor: pointer;
   color: white;
   border: none;
-  background: rgb(185, 147, 210, 1);
+  background: rgb(166 113 196);
 }
 
 .tv__box {
@@ -150,8 +161,6 @@ export default {
 
 .tv__item {
   width: 30%;
-  border: 1px solid black;
-  text-align: center;
 }
 
 .internet__container {
@@ -164,11 +173,15 @@ export default {
   justify-content: space-around;
 }
 
+.fixo__item,
+.tv__item,
 .internet__item {
   width: 30%;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: none;
+  border-radius: 10px;
+  background: white;
   justify-content: center;
   align-items: center;
 }
@@ -186,13 +199,7 @@ export default {
 }
 
 .total__box {
-  color: rgb(185, 147, 210, 1);
-}
-
-.button__container {
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
+  color: rgb(166, 113, 196);
 }
 
 .button-select {
@@ -200,10 +207,8 @@ export default {
   width: 30%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: none;
-  background: rgb(9, 73, 94);
-  color: white;
+  justify-content: space-around;
+  color: rgb(184, 180, 180);
   font-size: 2vw;
   padding: 3vw;
   opacity: 0.7;
@@ -217,5 +222,13 @@ export default {
 
 .button-select img {
   width: 20%;
+  margin-right: 1vw;
+}
+
+.box__price__option {
+  width: 18vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
