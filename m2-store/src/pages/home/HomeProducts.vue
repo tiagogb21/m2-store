@@ -37,7 +37,7 @@
       v-for="product in productList"
       v-bind:key="product.id"
     >
-      <h3 class="title">{{ product }}</h3>
+      <h3 :class="title">{{ product }}</h3>
 
       <!-- Fixo -->
       <article v-if="product === 'Fixo'" class="fixo__container">
@@ -54,7 +54,7 @@
 
       <!-- TV -->
       <article v-else-if="product === 'TV'">
-        <h4>Agora escolha seu pacote de televisão</h4>
+        <h4 class="tv">Agora escolha seu pacote de televisão</h4>
         <article class="tv__box">
           <button
             v-for="prod in productTV"
@@ -119,12 +119,10 @@ export default {
       return isInternetProductEmpty;
     },
     isButtonDisabled() {
-      const isInternetProductEmpty =
-        this.$store.state.cartItems.internet.product.length === 0;
-      const isTVProductEmpty =
-        this.$store.state.cartItems.tv.product.length === 0;
-      const isFixoProductEmpty =
-        this.$store.state.cartItems.fixo.product.length === 0;
+      const cartItems = this.$store.state.cartItems;
+      const isInternetProductEmpty = cartItems.internet.product.length === 0;
+      const isTVProductEmpty = cartItems.tv.product.length === 0;
+      const isFixoProductEmpty = cartItems.fixo.product.length === 0;
       return isInternetProductEmpty || isTVProductEmpty || isFixoProductEmpty;
     },
   },
@@ -137,7 +135,6 @@ export default {
   methods: {
     teste() {
       const cartItems = this.$store.state.cartItems;
-      console.log(cartItems);
       const a = `
         Plano de Internet: ${cartItems.internet.product}
         Plano de TV: ${cartItems.tv.product}
