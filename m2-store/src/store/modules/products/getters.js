@@ -24,6 +24,25 @@ const getters = {
     state.totalPrice = totalPrice;
     return state.totalPrice;
   },
+
+  removeAllItems: (state) => {
+    state.totalPrice = 0;
+    const resetCart = {
+      internet: {
+        product: '',
+        price: 0,
+      },
+      tv: {
+        product: '',
+        price: 0,
+      },
+      fixo: {
+        product: '',
+        price: 0,
+      },
+    };
+    state.cartItems = resetCart;
+  },
 };
 
 export default getters;

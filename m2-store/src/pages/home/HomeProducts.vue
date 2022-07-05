@@ -7,9 +7,9 @@
         CONTINUAR
       </button>
       <!-- Botão Apagar Plano Selecionado -->
-      <button class="button-select">
+      <button class="button-select" type="button" @click="removeAllItems">
         <img src="../../assets/remove.png" alt="remove item" />
-        DELETE
+        REMOVE
       </button>
     </section>
 
@@ -101,6 +101,7 @@ export default {
       'productTV',
       'productInternet',
       'addProductToCart',
+      'removeAllItems',
     ]),
   },
   created() {
