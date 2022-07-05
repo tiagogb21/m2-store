@@ -48,6 +48,8 @@ docker-compose build --no-cache
 - Prettier
 - Editorconfig
 
+<br />
+
 ### Usuário:
 
  <p> O usuário pode escolher apenas um plano por categoria. <p>
