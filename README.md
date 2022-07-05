@@ -42,6 +42,12 @@ docker-compose build --no-cache
 
 <br />
 
+### Objetivo - organização e padronização:
+
+- Lint
+- Prettier
+- Editorconfig
+
 ### Usuário:
 
  <p> O usuário pode escolher apenas um plano por categoria. <p>
