@@ -34,6 +34,6 @@ docker-compose build --no-cache
 
 ### O projeto utiliza:
 
- <p> <strong>Router:</strong> para criar as rotas. </p>
+ <p> <strong>Router:</strong> Para criar as rotas de navegação. </p>
  
- <p> <strong>Store:</strong> para trabalhar com dados de maneira global. </p>
+ <p> <strong>Store:</strong> Gerenciamento de Estado Centralizado. </p>
