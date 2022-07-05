@@ -5,28 +5,33 @@
       "title": "Ilimitado Fixo Brasil"
     }
   ],
-  "TV":[
+  "TV": [
     {
       "id": 1,
-      "title": "Ultimate HD"
+      "title": "Ultimate HD",
+      "price": 150
     },
     {
       "id": 2,
-      "title": "Full HD"
+      "title": "Full HD",
+      "price": 80
     }
   ],
-  "internet": [
+  "Internet": [
     {
       "id": 1,
-      "title": "100 MB"
+      "title": "100 MB",
+      "price": "100"
     },
     {
       "id": 2,
-      "title": "200 MB"
+      "title": "200 MB",
+      "price": "150"
     },
     {
       "id": 3,
-      "title": "300 MB"
+      "title": "300 MB",
+      "price": "180"
     }
   ]
 }
