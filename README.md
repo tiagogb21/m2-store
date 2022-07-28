@@ -42,7 +42,9 @@ docker-compose build --no-cache
 
 <br />
 
-### Objetivo - organização e padronização:
+### Objetivo:
+
+### organização e padronização:
 
 - Lint
 - Prettier
